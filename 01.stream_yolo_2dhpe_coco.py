@@ -24,7 +24,8 @@ while True:
     if not ret:
         print("Error: Failed to capture frame.")
         break
-
+    
+    frame = cv2.flip(frame,1)
     # YOLO 모델로 프레임 추론
     results = model(frame, verbose=False)
 
