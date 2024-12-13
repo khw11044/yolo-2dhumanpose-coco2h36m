@@ -32,6 +32,7 @@ while True:
             keypoints, scores = jointsdata[:1,:,:2], jointsdata[:1,:,2:]
             if scores.any():
                 h36m_kpts, h36m_scores, valid_frames = h36m_coco_format(keypoints, scores)
+                kps = np.concatenate([h36m_kpts, h36m_scores], axis=2)
                 frame = show2Dpose(h36m_kpts, frame)
 
     except:
